@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Shop
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" ,integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" ,crossorigin="anonymous")
+        link(rel="stylesheet", href="./style.css" )
+    body
+        .container
+            h1.my-5 Checkout payment with Paypal
+           
+            form(action="/pay" method='POST')
+                table.table
+                    thead
+                        tr
+                        th(scope='col') Code
+                        th(scope='col') Product Name
+                        th(scope='col') Price ($)/item
+                        th(scope='col') Image
+                        th(scope='col') Quantity
+                    tbody
+                        tr
+                        th(scope='row') #{product.id}
+                        td #{product.name}
+                        td #{product.price}
+                        td 
+                            img(src=`${product.image}`, alt="logo",style='\
+height: 50px;\
+width: 50px;\
+')
+                        td
+                            input(type="number" value=1 min=1 name='quanty')
+                            input(type="hidden" name='id' value=product.id)
+
+
+
+                button.paypal-button
+                    span.paypal-button-title
+                    | Buy now with
+                    span.paypal-logo
+                        i Pay
+                        i Pal
